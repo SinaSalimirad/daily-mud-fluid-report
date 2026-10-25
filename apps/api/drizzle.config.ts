@@ -6,7 +6,7 @@ export default defineConfig({
 	out: "./drizzle",
 
 	dbCredentials: {
-		url: "postgres://postgres:STRONG_PASSWORD@localhost:5432/daily-drilling-fluid-report",
+		url: "postgres://postgres:STRONG_PASSWORD@localhost:5432/daily-mud-fluid-report",
 		ssl: false,
 	},
 
