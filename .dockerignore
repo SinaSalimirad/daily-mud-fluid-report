@@ -18,6 +18,7 @@ Dockerfile*
 # Ignore version control directories
 **/.git
 **/.gitignore
+**/.gitattributes
 
 # Ignore operating system files
 **/.DS_Store
@@ -26,3 +27,7 @@ Dockerfile*
 # Ignore temporary and backup files
 **/*.tmp
 **/*~
+
+# Ignore framework-specific files
+.next/
+next-env.d.ts

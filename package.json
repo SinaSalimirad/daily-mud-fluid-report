@@ -2,7 +2,7 @@
 	"name": "daily-mud-fluid-report",
 	"version": "0.1.0",
 	"private": true,
-	"packageManager": "bun",
+	"packageManager": "bun@1.4.4",
 	"workspaces": [
 		"apps/*",
 		"packages/*"
@@ -13,6 +13,8 @@
 		"typecheck": "bun run --filter '*' typecheck",
 		"api:dev": "bun --filter @daily-mud-fluid-report/api dev",
 		"api:build": "bun --filter @daily-mud-fluid-report/api build",
+		"web:dev": "bun --filter @daily-mud-fluid-report/web dev",
+		"web:build": "bun --filter @daily-mud-fluid-report/web build",
 		"db:generate": "bun run --filter @daily-mud-fluid-report/api db:generate",
 		"db:migrate": "bun run --filter @daily-mud-fluid-report/api db:migrate",
 		"db:push": "bun run --filter @daily-mud-fluid-report/api db:push",

@@ -6,3 +6,6 @@ dist/
 
 # local env files
 .env
+
+.next/
+next-env.d.ts
