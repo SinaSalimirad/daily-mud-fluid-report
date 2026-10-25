@@ -9,7 +9,6 @@
 **/build
 
 # Ignore sensitive environment variables
-**/.env
 **/.env.example
 
 # Ignore Docker-related files
