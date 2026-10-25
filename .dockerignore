@@ -9,6 +9,7 @@
 **/build
 
 # Ignore sensitive environment variables
+**/.env
 **/.env.example
 
 # Ignore Docker-related files
@@ -17,6 +18,7 @@ Dockerfile*
 
 # Ignore version control directories
 **/.git
+**/.gitignore
 
 # Ignore operating system files
 **/.DS_Store
