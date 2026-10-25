@@ -1,7 +1,7 @@
 import { pgTable } from "drizzle-orm/pg-core";
 import { timestamps, uuidv7 } from "./_shared/columns";
 import { products } from "./product.schema";
-// import { sections } from "./section.schema";
+import { sections } from "./section.schema";
 
 export const inventories = pgTable("inventories", (t) => ({
 	id: uuidv7,
@@ -18,10 +18,10 @@ export const inventories = pgTable("inventories", (t) => ({
 	note: t.text("note"),
 
 	// This references column for computing `Section used`
-	// sectionId: t
-	// 	.uuid("section_id")
-	// 	.references(() => sections.id)
-	// 	.notNull(),
+	sectionId: t
+		.uuid("section_id")
+		.references(() => sections.id)
+		.notNull(),
 
 	...timestamps,
 }));
