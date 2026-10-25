@@ -23,8 +23,13 @@ const checkProduct = (
 	 * This condition is true when width is provided and height is omitted.
 	 */
 	if (data.width != null && data.height == null) {
-		throw new Error("Height is required when width is provided");
+		ctx.addIssue({
+			code: "custom",
+			path: ["height"],
+			message: "Height is required when width is provided",
+		});
 	}
+
 	if (data.height != null && data.width == null) {
 		ctx.addIssue({
 			code: "custom",
@@ -52,3 +57,4 @@ export const productParamsSchema = productBaseSchema.pick({ name: true });
 
 export type Product = z.infer<typeof productSchema>;
 export type ProductFilter = z.infer<typeof productFilterSchema>;
+export type ProductUpdate = z.infer<typeof productUpdateSchema>;

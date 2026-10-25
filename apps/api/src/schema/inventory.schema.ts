@@ -6,16 +6,16 @@ import { products } from "./product.schema";
 export const inventories = pgTable("inventories", (t) => ({
 	id: uuidv7,
 
-	// `productName` is unique and references the `name` in the products table
-	productName: t
-		.varchar("product_name", { length: 255 })
-		.references(() => products.name)
+	productId: t
+		.uuid("product_id")
+		.references(() => products.id)
 		.notNull(),
 
 	init: t.integer("init").default(0).notNull(),
 	received: t.integer("received").default(0).notNull(),
 	used: t.integer("used").default(0).notNull(),
 	backLoad: t.integer("back_load").default(0).notNull(),
+	note: t.text("note"),
 
 	// This references column for computing `Section used`
 	// sectionId: t

@@ -27,18 +27,15 @@ export const productController = new Elysia({ prefix: "/v1/products" })
 		},
 	)
 
-	/**
-	 * Tip: The `name` parameter is used to identify the product to be updated or removed. The name is unique for each product, so it can be used as an identifier in the URL path. The name parameter is extracted from the URL and passed to the corresponding service functions to perform the update or removal of the product.
-	 */
 	.patch(
-		"/:name",
+		"/:id",
 		async ({ params, body }) => {
-			return await updateProduct(params.name, body);
+			return await updateProduct(params.id, body);
 		},
 		{
 			body: ProductModel.update,
 		},
 	)
-	.delete("/:name", async ({ params }) => {
-		return await removeProduct(params.name);
+	.delete("/:id", async ({ params }) => {
+		return await removeProduct(params.id);
 	});
