@@ -15,7 +15,11 @@ export async function findManyProducts() {
 }
 
 export async function findProductById(id: string) {
-	const [product] = await db.select().from(products).where(eq(products.id, id)).limit(1);
+	const [product] = await db
+		.select()
+		.from(products)
+		.where(eq(products.id, id))
+		.limit(1);
 	return product;
 }
 
