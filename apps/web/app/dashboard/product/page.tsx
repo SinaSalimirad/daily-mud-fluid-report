@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { DataTable } from "./data-table";
-import { columns, type Product } from "./columns";
 import { dummyProducts } from "@/lib/dummy_data";
+import type { Product } from "@/types/product";
+import { columns } from "./columns";
+import { DataTable } from "./data-table";
 
 export default function ProductPage() {
-  const [data, _setData] = useState<Product[]>(() => dummyProducts);
+	const [data, _setData] = useState<Product[]>(() => dummyProducts);
 
-  return <DataTable columns={columns} data={data} />;
+	return <DataTable columns={columns} data={data} />;
 }
