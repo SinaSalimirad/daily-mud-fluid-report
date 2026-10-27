@@ -2,10 +2,10 @@ export type Product = {
   id: string;
   name: string;
   quantity: number;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   unit: string;
-  sg: number;
+  sg?: number;
   origin: "local" | "foreign";
   unitPrice: number;
   createdAt: Date;
@@ -17,8 +17,7 @@ export const dummyProducts: Product[] = [
     id: "019a1000-0000-7000-8000-000000000001",
     name: "Barite",
     quantity: 25000,
-    width: 1,
-    height: 1,
+
     unit: "kg",
     sg: 4.2,
     origin: "foreign",
