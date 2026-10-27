@@ -30,59 +30,88 @@ import { Badge } from "@/components/ui/badge";
 
 const columnHelper = createColumnHelper<DataTableFeatures, Product>();
 
+function EmptyValue() {
+  return (
+    <div className="text-right text-muted-foreground">
+      <span aria-hidden="true">—</span>
+      <span className="sr-only">Not specified</span>
+    </div>
+  );
+}
+
 export const columns = columnHelper.columns([
   columnHelper.display({
-    header: "#",
     id: "counter",
-    cell: ({ row }) => {
-      return <span className="font-bold">{row.index + 1}</span>;
-    },
+    header: "#",
+    cell: ({ row }) => (
+      <span className="text-muted-foreground tabular-nums">
+        {row.index + 1}
+      </span>
+    ),
   }),
   columnHelper.accessor("name", {
     header: "Name",
+    cell: ({ getValue }) => <span className="font-medium">{getValue()}</span>,
   }),
   columnHelper.accessor("quantity", {
-    header: "Quantity",
+    header: () => <div className="text-right tabular-nums">Quantity</div>,
+    cell: ({ getValue }) => (
+      <div className="text-right tabular-nums">{getValue()}</div>
+    ),
   }),
   columnHelper.accessor("height", {
-    header: "Height",
+    header: () => <div className="text-right tabular-nums">Height</div>,
     cell: ({ getValue }) => {
-      return getValue() ? (
-        <p className="text-center">{getValue()}</p>
+      const value = getValue();
+      return value != null ? (
+        <div className="text-right tabular-nums">{value}</div>
       ) : (
-        <Badge variant="destructive">U/N</Badge>
+        <EmptyValue />
       );
     },
   }),
   columnHelper.accessor("width", {
-    header: "Width",
+    header: () => <div className="text-right tabular-nums">Width</div>,
     cell: ({ getValue }) => {
-      return getValue() ? (
-        <p className="text-center">{getValue()}</p>
+      const value = getValue();
+      return value != null ? (
+        <div className="text-right tabular-nums">{value}</div>
       ) : (
-        <Badge variant="destructive">U/N</Badge>
+        <EmptyValue />
       );
     },
   }),
+
   columnHelper.accessor("unit", {
     header: "Unit",
-    cell: ({ getValue }) => {
-      return <Badge variant="outline">{getValue()}</Badge>;
-    },
+    cell: ({ getValue }) => <Badge variant="outline">{getValue()}</Badge>,
   }),
 
   columnHelper.accessor("sg", {
-    header: "Specific Gravity",
+    header: () => (
+      <div className="text-right tabular-nums">Specific Gravity</div>
+    ),
+    cell: ({ getValue }) => {
+      const value = getValue();
+      return value != null ? (
+        <div className="text-right tabular-nums">{value}</div>
+      ) : (
+        <EmptyValue />
+      );
+    },
   }),
+
   columnHelper.accessor("origin", {
     header: "Origin",
   }),
+
   columnHelper.accessor("unitPrice", {
     header: "Unit Price",
     cell: ({ getValue }) => {
       return <p>${getValue()}</p>;
     },
   }),
+
   columnHelper.display({
     id: "actions",
     cell: ({ row }) => {
