@@ -5,13 +5,13 @@ import { products } from "@/schema/product.schema";
 
 export const productBaseSchema = createInsertSchema(products, {
 	name: z.string().trim().min(1),
-	quantity: z.number().positive(),
-	width: z.number().positive().optional(),
-	height: z.number().positive().optional(),
+	quantity: z.coerce.number().positive(),
+	width: z.coerce.number().positive().optional(),
+	height: z.coerce.number().positive().optional(),
 	unit: z.enum(ProductUnit),
-	sg: z.number().positive().optional(),
+	sg: z.coerce.number().positive().optional(),
 	origin: z.enum(ProductOrigin),
-	unitPrice: z.number().positive().optional(),
+	unitPrice: z.coerce.number().positive().optional(),
 });
 
 const checkProduct = (
