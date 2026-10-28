@@ -19,7 +19,9 @@
 		"db:migrate": "bun run --filter @daily-mud-fluid-report/api db:migrate",
 		"db:push": "bun run --filter @daily-mud-fluid-report/api db:push",
 		"db:studio": "bun run --filter @daily-mud-fluid-report/api db:studio",
-		"docker:dev:up": "docker compose --env-file .env -f infra/docker/compose.dev.yml up -d --build"
+		"docker:dev:up": "docker compose --env-file .env -f infra/docker/compose.dev.yml up -d --build",
+		"docker:dev:down": "docker compose --env-file .env -f infra/docker/compose.dev.yml down",
+		"docker:dev:db": "docker compose --env-file .env -f infra/docker/compose.dev.yml up -d postgres"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.15"
