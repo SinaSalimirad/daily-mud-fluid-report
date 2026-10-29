@@ -13,3 +13,8 @@ export type Product = {
 	createdAt: Date;
 	updatedAt: Date;
 };
+
+export type GetProductsResponse = {
+	success: boolean;
+	products: Product[];
+};
