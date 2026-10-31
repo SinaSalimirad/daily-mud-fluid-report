@@ -5,7 +5,7 @@ import { products } from "@/schema/product.schema";
 
 export const productBaseSchema = createInsertSchema(products, {
 	name: z.string().trim().min(1),
-	quantity: z.coerce.number().positive(),
+	size: z.coerce.number().positive(),
 	width: z.coerce.number().positive().optional(),
 	height: z.coerce.number().positive().optional(),
 	unit: z.enum(ProductUnit),
@@ -47,7 +47,7 @@ export const productFilterSchema = productBaseSchema.partial().pick({
 	unit: true,
 	origin: true,
 	unitPrice: true,
-	quantity: true,
+	size: true,
 	sg: true,
 });
 export const productUpdateSchema = productBaseSchema

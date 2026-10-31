@@ -9,6 +9,7 @@ export const inventoryBaseSchema = createInsertSchema(inventories, {
 	used: z.int().nonnegative(),
 	backLoad: z.int().nonnegative(),
 	note: z.string().optional(),
+	sectionId: z.uuid(),
 });
 
 export const inventorySchema = inventoryBaseSchema.pick({
@@ -18,6 +19,7 @@ export const inventorySchema = inventoryBaseSchema.pick({
 	used: true,
 	backLoad: true,
 	note: true,
+	sectionId: true,
 });
 
 export type Inventory = z.infer<typeof inventorySchema>;

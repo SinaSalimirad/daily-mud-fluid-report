@@ -8,7 +8,7 @@ export const ProductOriginEnum = pgEnum("product_origin", ProductOrigin);
 export const products = pgTable("products", (t) => ({
 	id: uuidv7,
 	name: t.varchar("name", { length: 255 }).notNull().unique(),
-	quantity: t.doublePrecision("quantity").notNull(),
+	size: t.doublePrecision("size").notNull(),
 	width: t.doublePrecision("width"),
 	height: t.doublePrecision("height"),
 	unit: ProductUnitEnum("unit").notNull(),
