@@ -44,6 +44,10 @@ const data = {
 			title: "MANAGEMENT",
 			url: "#",
 			items: [
+				{ title: "Project", url: "project" },
+				{ title: "Well", url: "well" },
+				{ title: "Section", url: "section" },
+				{ title: "Report", url: "report" },
 				{
 					title: "Inventories",
 					url: "inventories",
@@ -51,14 +55,6 @@ const data = {
 				{
 					title: "Products",
 					url: "products",
-				},
-				{
-					title: "Operators & Contractors",
-					url: "#",
-				},
-				{
-					title: "Mud & Fluids",
-					url: "#",
 				},
 			],
 		},

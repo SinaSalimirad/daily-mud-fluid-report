@@ -1,11 +1,17 @@
+"use client";
+
 import { useState } from "react";
 import {
+	Field,
 	FieldDescription,
 	FieldGroup,
 	FieldLabel,
 	FieldLegend,
+	FieldSeparator,
 	FieldSet,
 } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useDebounce } from "@/hooks/use-debounce";
 import { useSearchProducts } from "@/hooks/use-product-query";
 import type { Product } from "@/types/product.type";
@@ -17,14 +23,7 @@ export function FromData() {
 
 	const debouncedSearch = useDebounce(search);
 
-	const {
-		data: products = [],
-		isLoading,
-		error,
-		status,
-	} = useSearchProducts(debouncedSearch);
-
-	console.log({ status, error, count: products.length, products });
+	const { data: products = [], isLoading } = useSearchProducts(debouncedSearch);
 
 	return (
 		<form>
@@ -36,19 +35,53 @@ export function FromData() {
 					</FieldDescription>
 					<FieldGroup>
 						<FieldLabel>Product Name</FieldLabel>
-						<ComboboxCustom
-							items={products}
-							value={selectedProduct}
-							onValueChange={setSelectedProduct}
-							onSearchChange={setSearch}
-							isLoading={isLoading}
-							placeholder="Search products (e.g. Barite, Starch LV)"
-						/>
-						{selectedProduct && (
-							<div className="text-sm text-muted-foreground">
-								Selected: {selectedProduct.name}
-							</div>
-						)}
+
+						<Field>
+							<ComboboxCustom
+								items={products}
+								value={selectedProduct}
+								onValueChange={setSelectedProduct}
+								onSearchChange={setSearch}
+								isLoading={isLoading}
+								placeholder="Search products (e.g. Barite, Starch LV)"
+							/>
+						</Field>
+
+						<Field className="grid grid-cols-2 gap-4">
+							<Field>
+								<FieldLabel htmlFor="package">Package</FieldLabel>
+								<Input id="package" type="text" className="h-10" disabled />
+							</Field>
+							<Field>
+								<FieldLabel htmlFor="unit-price">Unit Price</FieldLabel>
+								<Input id="unit-price" type="text" className="h-10" disabled />
+							</Field>
+						</Field>
+					</FieldGroup>
+				</FieldSet>
+				<FieldSeparator />
+
+				<FieldSet>
+					<FieldLegend>Management</FieldLegend>
+					<FieldDescription>add a description here</FieldDescription>
+					<FieldGroup>
+						<Field className="grid grid-cols-3 gap-4">
+							<Field>
+								<FieldLabel htmlFor="package">Initial Stock</FieldLabel>
+								<Input id="package" type="text" className="h-10" />
+							</Field>
+
+							<Field>
+								<FieldLabel htmlFor="unit-price">Daily Used</FieldLabel>
+								<Input id="unit-price" type="text" className="h-10" />
+							</Field>
+
+							<Field>
+								<FieldLabel htmlFor="unit-price">Daily Received</FieldLabel>
+								<Input id="unit-price" type="text" className="h-10" />
+							</Field>
+						</Field>
+						<Textarea placeholder="Add details if you need " />
 					</FieldGroup>
 				</FieldSet>
 			</FieldGroup>
