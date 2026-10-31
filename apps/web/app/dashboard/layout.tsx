@@ -26,8 +26,8 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Dashboard ",
-          url: "#",
+          title: "Dashboard",
+          url: "dashboard",
           isActive: true,
         },
         {
@@ -46,11 +46,11 @@ const data = {
       items: [
 		{
           title: "Inventories",
-          url: "dashboard/inventories",
+          url: "inventories",
         },
         {
           title: "Products",
-          url: "dashboard/products",
+          url: "products",
         },
         {
           title: "Operators & Contractors",
@@ -141,56 +141,4 @@ export default function Layout({ children }: { children: ReactNode }) {
       </SidebarInset>
     </SidebarProvider>
   );
-
-  // return (
-  //   <SidebarProvider>
-  //     <Sidebar>
-  //       <SidebarHeader>
-  //         <SidebarMenu>
-  //           <SidebarMenuItem>
-  //             <SidebarMenuButton size="lg">
-  //               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-  //                 <GalleryVerticalEndIcon className="size-4" />
-  //               </div>
-  //               <div className="flex flex-col gap-0.5 leading-none">
-  //                 <span className="font-medium">Documentation</span>
-  //                 <span className="">v1.0.0</span>
-  //               </div>
-  //             </SidebarMenuButton>
-  //           </SidebarMenuItem>
-  //         </SidebarMenu>
-  //       </SidebarHeader>
-  //       <SidebarContent>
-  //         <SidebarGroup>
-  //           <SidebarMenu>
-  //             {data.navMain.map((item) => (
-  //               <SidebarMenuItem key={item.title}>
-  //                 <SidebarMenuButton
-  //                   render={<a href={item.url} className="font-medium" />}
-  //                 >
-  //                   {item.title}
-  //                 </SidebarMenuButton>
-  //                 {item.items?.length ? (
-  //                   <SidebarMenuSub>
-  //                     {item.items.map((item) => (
-  //                       <SidebarMenuSubItem key={item.title}>
-  //                         <SidebarMenuSubButton
-  //                           isActive={item.isActive}
-  //                           render={<a href={item.url} />}
-  //                         >
-  //                           {item.title}
-  //                         </SidebarMenuSubButton>
-  //                       </SidebarMenuSubItem>
-  //                     ))}
-  //                   </SidebarMenuSub>
-  //                 ) : null}
-  //               </SidebarMenuItem>
-  //             ))}
-  //           </SidebarMenu>
-  //         </SidebarGroup>
-  //       </SidebarContent>
-  //     </Sidebar>
-  //     {children}
-  //   </SidebarProvider>
-  // );
 }
