@@ -10,6 +10,7 @@ export async function createProduct(data: Product) {
 export async function findByFilter(filter = {}) {
 	const products = await productRepository.findByFilterProducts(filter);
 
+	// FIXME: standardize the output
 	return { success: true, products };
 }
 
@@ -47,6 +48,7 @@ export async function updateProduct(id: string, data: ProductUpdate) {
 		return { success: false, message: "Product not found" };
 	}
 
+	// FIXME: standardize the output
 	return { success: true, product };
 }
 
@@ -57,5 +59,6 @@ export async function removeProduct(id: string) {
 		return { success: false, message: "Product not found" };
 	}
 
+	// FIXME: standardize the output
 	return { success: true, product };
 }

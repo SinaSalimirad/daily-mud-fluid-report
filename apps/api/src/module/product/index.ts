@@ -17,6 +17,7 @@ export const productController = new Elysia({ prefix: "/v1/products" })
 			query: ProductModel.filter,
 		},
 	)
+
 	.post(
 		"/",
 		async ({ body }) => {
@@ -36,6 +37,7 @@ export const productController = new Elysia({ prefix: "/v1/products" })
 			body: ProductModel.update,
 		},
 	)
+
 	.delete("/:id", async ({ params }) => {
 		return await removeProduct(params.id);
 	});
