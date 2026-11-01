@@ -1,32 +1,32 @@
-// enum Designation {
-// 	Exploration = "exploration",
-// 	Cuttings = "cuttings",
-// 	ReInjection = "re-injection",
-// 	WorkOver = "work-over",
-// 	Repairing = "repairing",
-// 	ReEntry = "re-entry",
-// 	NewLeg = "new leg",
-// 	Perforation = "perforation",
-// 	Plugging = "plugging",
-// }
+enum Designation {
+	Exploration = "exploration",
+	Cuttings = "cuttings",
+	ReInjection = "re-injection",
+	WorkOver = "work-over",
+	Repairing = "repairing",
+	ReEntry = "re-entry",
+	NewLeg = "new leg",
+	Perforation = "perforation",
+	Plugging = "plugging",
+}
 
-// enum Currency {
-// 	Dollar = "$",
-// 	Pound = "£",
-// 	Euro = "€",
-// 	Yuan = "¥",
-// 	Rial = "IRR",
-// }
+enum CurrencyCode {
+	Dollar = "$",
+	Pound = "£",
+	Euro = "€",
+	Yuan = "¥",
+	Rial = "IRR",
+}
 
-// enum WellType {
-// 	Directional = "Directional",
-// 	Vertical = "Vertical",
-// }
+enum WellType {
+	Directional = "Directional",
+	Vertical = "Vertical",
+}
 
-// enum RigType {
-// 	Offshore = "offshore",
-// 	Onshore = "onshore",
-// }
+enum RigType {
+	Offshore = "offshore",
+	Onshore = "onshore",
+}
 
 enum ProductOrigin {
 	Foreign = "foreign",
@@ -44,4 +44,11 @@ enum ProductUnit {
 	SquareMeter = "m x m",
 }
 
-export { ProductOrigin, ProductUnit };
+export {
+	CurrencyCode,
+	Designation,
+	ProductOrigin,
+	ProductUnit,
+	RigType,
+	WellType,
+};
