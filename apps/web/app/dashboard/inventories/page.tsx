@@ -5,7 +5,7 @@ import { useForm } from "@tanstack/react-form";
 import { FromData } from "./form-data";
 
 export default function ProductPage() {
-	const form = useForm({
+	const _form = useForm({
 		onSubmit: async () => {
 			console.log("value");
 		},
