@@ -24,7 +24,7 @@
 		"docker:dev:db": "docker compose --env-file .env -f infra/docker/compose.dev.yml up -d postgres"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.15"
+		"@biomejs/biome": "2.6.4"
 	},
 	"trustedDependencies": [
 		"sharp",
