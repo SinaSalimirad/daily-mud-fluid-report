@@ -8,16 +8,13 @@ COPY package.json ./
 
 COPY apps/web/package.json ./apps/web/package.json
 COPY apps/api/package.json ./apps/api/package.json
-COPY packages/shared/schemas/package.json ./packages/shared/schemas/package.json
-COPY packages/shared/constants/package.json ./packages/shared/constants/package.json
 
-RUN bun install --frozen-lockfile
+RUN bun install
 
 # Copy Frontend source code 
 COPY apps/web ./apps/web
-COPY packages ./packages
 
-RUN bun run build:web
+RUN bun run web:build
 
 FROM oven/bun:1.4.4-debian AS runner
 

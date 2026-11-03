@@ -1,4 +1,5 @@
 import { type Config, defineConfig } from "drizzle-kit";
+import { env } from "./src/helper/env";
 
 export default defineConfig({
 	dialect: "postgresql",
@@ -6,7 +7,7 @@ export default defineConfig({
 	out: "./drizzle",
 
 	dbCredentials: {
-		url: "postgres://postgres:STRONG_PASSWORD@localhost:5432/daily-mud-fluid-report",
+		url: env.DATABASE_URL,
 		ssl: false,
 	},
 

@@ -13,7 +13,7 @@ export const wellBaseSchema = createInsertSchema(wells, {
 	contractor: z.string().trim().min(1),
 	field: z.string().trim().min(1),
 	designation: z.enum(Designation),
-	spudDate: z.date(),
+	spudDate: z.iso.date(),
 	currencyCode: z.enum(CurrencyCode),
 	wellType: z.enum(WellType),
 	rigName: z.string().trim().min(1),

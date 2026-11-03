@@ -11,7 +11,7 @@ COPY apps/api/package.json ./apps/api/package.json
 COPY .npmrc ./
 
 # Install production dependencies
-RUN bun install --frozen-lockfile --production --verbose
+RUN bun install --production --verbose
 
 # Copy source code
 COPY apps/api ./apps/api
