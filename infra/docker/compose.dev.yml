@@ -7,7 +7,6 @@ networks:
 
   backend:
     driver: bridge
-    internal: true
 
 services:
   nginx:
