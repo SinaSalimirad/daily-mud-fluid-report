@@ -32,8 +32,8 @@ export async function findByFilterProducts(filter: ProductFilter = {}) {
 	}
 
 	// Other columns: exact match
-	if (filter.quantity !== undefined) {
-		conditions.push(eq(products.quantity, filter.quantity));
+	if (filter.size !== undefined) {
+		conditions.push(eq(products.size, filter.size));
 	}
 
 	if (filter.width !== undefined) {
