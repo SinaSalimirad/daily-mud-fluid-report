@@ -28,6 +28,7 @@ export const columns = columnHelper.columns([
 				{row.index + 1}
 			</div>
 		),
+		filterFn: "includesString", // case-insensitive
 	}),
 	columnHelper.accessor("name", {
 		header: () => <div className="text-left">Name</div>,

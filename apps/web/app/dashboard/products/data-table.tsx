@@ -7,8 +7,8 @@ import {
 } from "@tanstack/react-table";
 
 import { useState } from "react";
-
 import { DataTablePagination } from "@/components/common/data-table-pagination";
+
 import {
 	Table,
 	TableBody,
@@ -18,6 +18,7 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import { type DataTableFeatures, features } from "@/lib/data-table-features";
+import { DataTableHeader } from "./data-table-header";
 
 interface DataTableProps<TData extends RowData> {
 	columns: ColumnDef<DataTableFeatures, TData>[];
@@ -50,6 +51,7 @@ export function DataTable<TData extends RowData>({
 
 	return (
 		<section className="border p-2 rounded-sm flex flex-col gap-2">
+			<DataTableHeader table={table} />
 			<div className="overflow-hidden rounded-md border w-full">
 				<Table>
 					<TableHeader>
