@@ -36,8 +36,8 @@ export const columns = columnHelper.columns([
 			<span className="font-medium text-left">{getValue()}</span>
 		),
 	}),
-	columnHelper.accessor("quantity", {
-		header: () => <div className="text-center tabular-nums">Quantity</div>,
+	columnHelper.accessor("size", {
+		header: () => <div className="text-center tabular-nums">Size</div>,
 		cell: ({ getValue }) => (
 			<div className="text-center tabular-nums">{getValue()}</div>
 		),
@@ -98,9 +98,14 @@ export const columns = columnHelper.columns([
 	columnHelper.accessor("unitPrice", {
 		header: () => <div className="text-center tabular-nums">Unit Price</div>,
 
-		cell: ({ getValue }) => (
-			<div className="text-center tabular-nums">{getValue()}</div>
-		),
+		cell: ({ getValue }) => {
+			const value = getValue();
+			return value != null ? (
+				<div className="text-center tabular-nums">{value}</div>
+			) : (
+				<EmptyValue />
+			);
+		},
 	}),
 
 	columnHelper.display({

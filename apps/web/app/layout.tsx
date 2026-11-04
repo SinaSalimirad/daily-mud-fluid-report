@@ -34,9 +34,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 				inter.variable,
 			)}
 		>
-			<QueryProvider>
-				<body className="min-h-full flex flex-col">{children}</body>
-			</QueryProvider>
+			<body className="min-h-full flex flex-col">
+				<QueryProvider>{children}</QueryProvider>
+			</body>
 		</html>
 	);
 }

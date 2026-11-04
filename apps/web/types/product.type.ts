@@ -3,13 +3,13 @@ export type ProductOrigin = "local" | "foreign";
 export type Product = {
 	id: string;
 	name: string;
-	quantity: number;
-	width?: number;
-	height?: number;
+	size: number;
+	width: number | null;
+	height: number | null;
 	unit: string;
-	sg?: number;
+	sg: number | null;
 	origin: ProductOrigin;
-	unitPrice: number;
+	unitPrice: number | null;
 	createdAt: Date;
 	updatedAt: Date;
 };

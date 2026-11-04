@@ -27,7 +27,7 @@ const data = {
 			items: [
 				{
 					title: "Dashboard",
-					url: "dashboard",
+					url: "/dashboard",
 					isActive: true,
 				},
 				{
@@ -44,17 +44,17 @@ const data = {
 			title: "MANAGEMENT",
 			url: "#",
 			items: [
-				{ title: "Project", url: "project" },
-				{ title: "Well", url: "well" },
-				{ title: "Section", url: "section" },
-				{ title: "Report", url: "report" },
+				{ title: "Project", url: "#" },
+				{ title: "Well", url: "#" },
+				{ title: "Section", url: "#" },
+				{ title: "Report", url: "#" },
 				{
 					title: "Inventories",
-					url: "inventories",
+					url: "/dashboard/inventories",
 				},
 				{
 					title: "Products",
-					url: "products",
+					url: "/dashboard/products",
 				},
 			],
 		},
@@ -100,7 +100,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 							{data.navMain.map((item) => (
 								<SidebarMenuItem key={item.title}>
 									<SidebarMenuButton
-										render={<a href={item.url} className="font-medium" />}
+										render={<Link href={item.url} className="font-medium" />}
 									>
 										{item.title}
 									</SidebarMenuButton>
@@ -110,7 +110,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 												<SidebarMenuSubItem key={item.title}>
 													<SidebarMenuSubButton
 														isActive={item?.isActive}
-														render={<a href={item.url} />}
+														render={<Link href={item.url} />}
 													>
 														{item.title}
 													</SidebarMenuSubButton>

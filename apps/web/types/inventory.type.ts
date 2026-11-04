@@ -2,11 +2,10 @@ export type Inventory = {
 	id: string;
 	productName: string;
 	/**
-	 * package = quantity + unit (from product)
-	 * FIXME: convert `quantity` into `size`
+	 * package = size + unit (from product)
 	 */
 	package: string;
-	unitPrice: number; // reference from product schema
+	unitPrice: number | null; // reference from product schema (nullable there)
 	init: number;
 	received: number;
 	used: number;
