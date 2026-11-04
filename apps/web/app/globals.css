@@ -127,4 +127,13 @@
   html {
     @apply font-sans;
   }
+
+  button:is([type="button"]),
+  button:is([type="submit"]) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
 }
