@@ -1,5 +1,6 @@
 import type { ReactTable, RowData } from "@tanstack/react-table";
-import { ChevronDown, SlidersHorizontal } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { DataTableFeatures } from "@/lib/data-table-features";
@@ -9,27 +10,40 @@ export function DataTableHeader<TData extends RowData>({
 }: {
 	table: ReactTable<DataTableFeatures, TData>;
 }) {
+	const nameColumn = table.getColumn("name");
+	const sortDirection = nameColumn?.getIsSorted();
+
+	const handleSort = () => {
+		nameColumn?.toggleSorting(sortDirection === "asc");
+	};
+
 	return (
 		<section className="flex items-center justify-between gap-2">
-			<Input
-				value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-				onChange={(e) => {
-					table.getColumn("name")?.setFilterValue(e.target.value || undefined);
-					table.setPageIndex(0);
-				}}
-			/>
+			<div className="relative w-full max-w-sm">
+				<Search className="absolute left-2.5 top-2 size-4 text-muted-foreground" />
 
-			<div>
-				<Button className="h-8 p-4">
-					<SlidersHorizontal />
-					<span>Filter</span>
-				</Button>
-				<Button className="h-8 p-4">
-					<span>Sort by Name</span>
-					<span>(A{"->"}Z)</span>
-					<ChevronDown />
-				</Button>
+				<Input
+					className="h-8 w-full pl-8 text-xs"
+					placeholder="Search Product name..."
+					value={(nameColumn?.getFilterValue() as string) ?? ""}
+					onChange={(e) => {
+						nameColumn?.setFilterValue(e.target.value || undefined);
+						table.setPageIndex(0);
+					}}
+				/>
 			</div>
+
+			<Button variant="outline" className="h-8 gap-3 px-3" onClick={handleSort}>
+				<span>Sort by</span>
+
+				<span>(Name {sortDirection === "asc" ? "A → Z" : "Z → A"})</span>
+
+				<ChevronDown
+					className={`size-4 transition-transform ${
+						sortDirection === "desc" ? "rotate-180" : ""
+					}`}
+				/>
+			</Button>
 		</section>
 	);
 }
