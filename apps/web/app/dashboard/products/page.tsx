@@ -1,10 +1,11 @@
 "use client";
 
-import { ArrowRightFromLine, SquareChartGantt } from "lucide-react";
+import { ArrowRightFromLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useGetAllProducts } from "@/hooks/use-product-query";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
+import { ProductSheet } from "./product-sheet";
 
 export default function ProductPage() {
 	const {
@@ -26,10 +27,7 @@ export default function ProductPage() {
 				</div>
 
 				<div className="flex items-center gap-2">
-					<Button size="lg" className="h-10 p-4">
-						<SquareChartGantt className="size-4" />
-						Add Product
-					</Button>
+					<ProductSheet />
 
 					<Button size="lg" className="h-10 p-4" variant="outline">
 						<ArrowRightFromLine className="size-4 -rotate-90" />
